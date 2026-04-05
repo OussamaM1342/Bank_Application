@@ -1,4 +1,5 @@
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
@@ -20,6 +21,15 @@ public class AccountTest {
 
         //Then
         assertEquals(1, account.history().size());
+    }
+
+    @Test
+    void should_rejet_negative_deposit(){
+        Account account = new Account() ; 
+        assertThrows(IllegalArgumentException.class, () -> {
+            account.deposit(new Amount(BigDecimal.valueOf(-50)), LocalDate.now());
+        
+        }); 
     }
 
 }
