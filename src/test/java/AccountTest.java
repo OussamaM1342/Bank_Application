@@ -8,9 +8,13 @@ import org.junit.jupiter.api.Test;
 
 import com.app.bank.domaine.Account;
 import com.app.bank.domaine.Amount;
+import com.app.bank.exception.InvalidAmountException;
 
 public class AccountTest {
 
+    /**
+     * Verifies that a deposit operation:
+     */
     @Test
     void should_deposit_money(){
         //Given
@@ -23,13 +27,14 @@ public class AccountTest {
         assertEquals(1, account.history().size());
     }
 
+    /**
+     * Verifies that depositing a negative amount is rejected.
+     */
     @Test
     void should_rejet_negative_deposit(){
         Account account = new Account() ; 
-        assertThrows(IllegalArgumentException.class, () -> {
-            account.deposit(new Amount(BigDecimal.valueOf(-50)), LocalDate.now());
-        
+        assertThrows(InvalidAmountException.class, () -> {
+        account.deposit(new Amount(BigDecimal.valueOf(-50)), LocalDate.now());
         }); 
     }
-
 }
