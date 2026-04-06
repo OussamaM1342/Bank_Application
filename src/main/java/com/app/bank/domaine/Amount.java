@@ -1,7 +1,6 @@
 package com.app.bank.domaine;
 
 import java.math.BigDecimal;
-
 import com.app.bank.exception.InvalidAmountException;
 
 public class Amount {

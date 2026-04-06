@@ -1,7 +1,6 @@
 package com.app.bank;
 
 import java.math.BigDecimal;
-
 import org.junit.jupiter.api.*;
 import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,6 +22,9 @@ public class AccountControllerTest {
      @MockitoBean
      private AccountService accountService; // Mock du service
 
+    /**
+    * Test of the Withdrawal API
+    */
      @Test
     public void testDeposit() throws Exception {
         // Prepare the JSON request
@@ -38,6 +40,9 @@ public class AccountControllerTest {
         Mockito.verify(accountService).deposit(new BigDecimal("100.0"));
     }
 
+    /**
+    * Test of the Withdrawal API
+    */
      @Test
     public void testWithdrawal() throws Exception {
         // Prepare the JSON request

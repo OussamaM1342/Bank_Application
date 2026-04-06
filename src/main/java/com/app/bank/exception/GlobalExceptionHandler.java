@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.*;
 public class GlobalExceptionHandler {
 
     /**
-     * Handle invalid input
+    * Handle invalid input
     */
     @ExceptionHandler(InvalidAmountException.class)
     @ResponseStatus(HttpStatus.BAD_REQUEST)
@@ -16,8 +16,8 @@ public class GlobalExceptionHandler {
     }
 
     /**
-     * Handles business exception : insufficient balance
-     */
+    * Handles business exception : insufficient balance
+    */
     @ExceptionHandler(InsufficientBalanceException.class)
     @ResponseStatus(HttpStatus.BAD_REQUEST)
     public ErrorResponse InsufficientBalanceException(InsufficientBalanceException ex){
@@ -26,8 +26,8 @@ public class GlobalExceptionHandler {
 
     
     /**
-     * Unexcepted Error
-     */
+    * Unexcepted Error
+    */
     @ExceptionHandler(Exception.class)
     @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
     public ErrorResponse handleGeneric(Exception ex){

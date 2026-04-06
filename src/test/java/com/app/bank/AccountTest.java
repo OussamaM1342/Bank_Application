@@ -1,9 +1,9 @@
 package com.app.bank;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
-
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.List;
@@ -11,15 +11,14 @@ import org.junit.jupiter.api.Test;
 import com.app.bank.domaine.Account;
 import com.app.bank.domaine.Amount;
 import com.app.bank.domaine.Transaction;
-import com.app.bank.domaine.TransactionType;
 import com.app.bank.exception.InvalidAmountException;
 import com.app.bank.service.AccountService;
 
 public class AccountTest {
 
     /**
-     * Verifies that a deposit operation:
-     */
+    * Verifies that a deposit operation:
+    */
     @Test
     void should_deposit_money(){
         //Given
@@ -60,7 +59,6 @@ public class AccountTest {
 
     /**
     * Verifies withdrawal operation when balance is insufficient
-    *
     */
      @Test
     void withdraw_shouldThrowException_whenInsufficientBalance() {
