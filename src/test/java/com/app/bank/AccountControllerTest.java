@@ -56,6 +56,9 @@ public class AccountControllerTest {
                .withdrawal(new BigDecimal(50));
     }
 
+    /**
+    * Test of the history API
+    */
     @Test
     public void testTransactionHistory() throws Exception {
         mockMvc.perform(get("/api/account/history"))
