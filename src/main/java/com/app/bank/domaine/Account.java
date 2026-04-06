@@ -5,6 +5,8 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.app.bank.exception.InsufficientBalanceException;
+
 public class Account {
 
     /**
@@ -42,7 +44,7 @@ public class Account {
         */
     public void withdrawal(Amount amount, LocalDate date ){
          if(amount.getValue().compareTo(balance) > 0){
-            throw new IllegalArgumentException("Insufficient funds");
+            throw new InsufficientBalanceException("Insufficient balance");
          }
         balance = balance.subtract(amount.getValue()) ;
 
