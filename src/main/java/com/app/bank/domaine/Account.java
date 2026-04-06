@@ -17,6 +17,10 @@ public class Account {
      */
     private BigDecimal balance = BigDecimal.ZERO ; 
 
+    public BigDecimal getBalance() {
+    return balance;
+    }
+
       /**
      * Deposits a given amount into the account.
      * the amount to deposit (must be positive)
@@ -32,6 +36,7 @@ public class Account {
         ));
     }
 
+   
      /**
      * Returns the transaction history of the account.
      * return an immutable copy of the list of transactions
