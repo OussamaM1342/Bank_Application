@@ -17,20 +17,20 @@ import org.springframework.web.bind.annotation.PostMapping;
 public class AccountController {
 
     @Autowired
-    private AccountService acountService; 
+    private AccountService accountService; 
 
-   @PostMapping("/deposit")
+    @PostMapping("/deposit")
     public void deposit(@RequestBody DepositRequest depositRequest){
-        acountService.deposit(depositRequest.getAmount());
+        accountService.deposit(depositRequest.getAmount());
     }
 
     @PostMapping("/withdrawal")
     public void withdrawal(@RequestBody WithdrawlRequest withdrawlRequest){
-        acountService.withdrawal(withdrawlRequest.getAmount());
+        accountService.withdrawal(withdrawlRequest.getAmount());
     }
 
     @GetMapping("/history")
     public List<Transaction> getHistory(){
-        return acountService.getHistory();
+        return accountService.getHistory();
     }
 }

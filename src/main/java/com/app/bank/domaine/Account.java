@@ -24,7 +24,7 @@ public class Account {
 
     /**
     * Deposits a given amount into the account.
-    * the amount to deposit (must be positive)
+    * the amount to deposit must be positive
     */
     public void deposit(Amount amount, LocalDate date){
         balance = balance.add(amount.getValue()) ;
@@ -45,9 +45,8 @@ public class Account {
          if(amount.getValue().compareTo(balance) > 0){
             throw new InsufficientBalanceException("Insufficient balance");
          }
-        balance = balance.subtract(amount.getValue()) ;
-
-        transactions.add(new Transaction(
+         balance = balance.subtract(amount.getValue()) ;
+         transactions.add(new Transaction(
             date,
             amount.getValue().negate(),
             balance,

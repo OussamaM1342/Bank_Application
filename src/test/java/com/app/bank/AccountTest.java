@@ -46,7 +46,7 @@ public class AccountTest {
     * Verifies that a withdrawal operation
     */
     @Test
-    void withdraw_shouldDecreaseBalance_whenSufficientFunds() {
+    void withdraw_shouldDecreaseBalance_whenSufficientBalance() {
         //Given 
         Account account = new Account() ; 
 
