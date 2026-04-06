@@ -22,9 +22,9 @@ public class Account {
     }
 
       /**
-     * Deposits a given amount into the account.
-     * the amount to deposit (must be positive)
-     */
+       * Deposits a given amount into the account.
+       * the amount to deposit (must be positive)
+       */
     public void deposit(Amount amount, LocalDate date){
         balance = balance.add(amount.getValue()) ;
 
@@ -36,8 +36,14 @@ public class Account {
         ));
     }
 
-   
+      /**
+        * Withdraws a given amount from the account.
+        * Checks if the balance is sufficient, updates the balance,
+        */
     public void withdrawal(Amount amount, LocalDate date ){
+         if(amount.getValue().compareTo(balance) > 0){
+            throw new IllegalArgumentException("Insufficient funds");
+         }
         balance = balance.subtract(amount.getValue()) ;
 
         transactions.add(new Transaction(

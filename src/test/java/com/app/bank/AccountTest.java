@@ -54,4 +54,22 @@ public class AccountTest {
         //Then
         assertEquals(1, account.history().size());
     }
+
+     @Test
+    void withdraw_shouldThrowException_whenInsufficientFunds() {
+        Account account = new Account();
+
+        // GIVEN
+        account.deposit(new Amount(new BigDecimal("50.0")), LocalDate.now());
+
+        // WHEN
+        Exception exception = assertThrows(IllegalArgumentException.class, () ->
+            account.withdrawal(new Amount(new BigDecimal("100.0")), LocalDate.now())
+        );
+
+        // THEN
+        assertEquals("Insufficient funds", exception.getMessage());
+    }
+
+   
 }
