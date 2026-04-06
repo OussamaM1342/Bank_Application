@@ -37,4 +37,19 @@ public class AccountControllerTest {
         // Verify that the service was called with the correct amount
         Mockito.verify(accountService).deposit(new BigDecimal("100.0"));
     }
+
+     @Test
+    public void testWithdrawal() throws Exception {
+        // Prepare the JSON request
+        String withdrawalJson = "{ \"amount\": 50}";
+
+        // Perform the POST request
+        mockMvc.perform(post("/api/account/withdrawal")
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content(withdrawalJson))
+                .andExpect(status().isOk());
+
+        // Verify that the service was called with the correct amount
+        Mockito.verify(accountService).withdrawal(new BigDecimal(50));
+    }
 }

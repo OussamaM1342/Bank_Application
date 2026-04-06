@@ -13,8 +13,18 @@ public class AccountService {
     private final Account acount = new Account() ;
     private final Clock clock = Clock.systemDefaultZone() ; 
 
+     /**
+     * Deposit a given amount into the account.
+     */
     public void deposit(BigDecimal amount){
       acount.deposit(new Amount(amount), LocalDate.now(clock));
+    }
+
+     /**
+     * withdrawal a given amount into the account.
+     */
+    public void withdrawal(BigDecimal amount){
+        acount.withdrawal(new Amount(amount), LocalDate.now(clock));
     }
 
     
