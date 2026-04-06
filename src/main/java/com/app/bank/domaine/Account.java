@@ -37,6 +37,17 @@ public class Account {
     }
 
    
+    public void withdrawal(Amount amount, LocalDate date ){
+        balance = balance.subtract(amount.getValue()) ;
+
+        transactions.add(new Transaction(
+            date,
+            amount.getValue().negate(),
+            balance,
+            TransactionType.DEPOSIT
+        ));
+
+    }
      /**
      * Returns the transaction history of the account.
      * return an immutable copy of the list of transactions

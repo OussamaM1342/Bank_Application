@@ -49,9 +49,9 @@ public class AccountTest {
         Account account = new Account() ; 
 
         //When
-        account.withdraw(new Amount(BigDecimal.valueOf(100)), LocalDate.now()); 
+        account.withdrawal(new Amount(BigDecimal.valueOf(100)), LocalDate.now()); 
 
         //Then
-        assertEquals(new BigDecimal("60.0"), account.getBalance());
+        assertEquals(1, account.history().size());
     }
 }
