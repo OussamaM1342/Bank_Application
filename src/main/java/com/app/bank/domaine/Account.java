@@ -52,7 +52,7 @@ public class Account {
             date,
             amount.getValue().negate(),
             balance,
-            TransactionType.DEPOSIT
+            TransactionType.WITHDRAWAL
         ));
 
     }

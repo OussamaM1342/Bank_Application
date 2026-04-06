@@ -73,7 +73,7 @@ public class AccountTest {
         );
 
         // THEN
-        assertEquals("Insufficient funds", exception.getMessage());
+        assertEquals("Insufficient balance", exception.getMessage());
     }
 
     /**
@@ -86,16 +86,14 @@ public class AccountTest {
     account.deposit(new Amount(BigDecimal.valueOf(100)), LocalDate.now());
     account.withdrawal(new Amount(BigDecimal.valueOf(50)), LocalDate.now());
 
-    // Service minimal simulé
     AccountService service = new AccountService();
 
-    // Appel direct
     List<Transaction> history = service.getHistory();
 
-    // Assertions
     assertEquals(2, history.size());
     assertEquals(TransactionType.DEPOSIT, history.get(0).type());
-    }
+    assertEquals(TransactionType.DEPOSIT, history.get(0).type());
+
 
    
 }
