@@ -1,13 +1,18 @@
 package com.app.bank.controller;
 
 import org.springframework.web.bind.annotation.RequestMapping;
+
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 import com.app.bank.service.AccountService;
 import com.app.bank.DTO.DepositRequest;
 import com.app.bank.DTO.WithdrawlRequest;
+import com.app.bank.domaine.Transaction;
 
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
 @RestController
@@ -25,6 +30,10 @@ public class AccountController {
     @PostMapping("/withdrawal")
     public void withdrawal(@RequestBody WithdrawlRequest withdrawlRequest){
         acountService.withdrawal(withdrawlRequest.getAmount());
+    }
 
+    @GetMapping("/history")
+    public List<Transaction> getHistory(){
+        return acountService.getHistory();
     }
 }
